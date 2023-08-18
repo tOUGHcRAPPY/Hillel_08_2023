@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+black = "~=23.7"
+isort = "~=5.12"
+flake8 = "~=6.1"
+
+[requires]
+python_version = "3.11"
