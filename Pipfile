@@ -9,6 +9,7 @@ name = "pypi"
 black = "~=23.7"
 isort = "~=5.12"
 flake8 = "~=6.1"
+ipdb = "*"
 
 [requires]
 python_version = "3.11"
