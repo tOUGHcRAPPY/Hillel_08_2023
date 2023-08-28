@@ -20,7 +20,6 @@ while True:
         print(counter)
     except Exception:
         break
-    
 file.close()
 
 print(counter)
