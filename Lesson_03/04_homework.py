@@ -6,7 +6,7 @@ file = open(ROOT_DIR / "rockyou.txt", encoding="utf-8")
 lines: str = file.readlines()
 
 word = "user"
-word2 = "ebala"
+
 
 def add_all_findings(file, word):
     result_list = []
