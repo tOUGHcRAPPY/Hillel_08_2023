@@ -2,9 +2,11 @@ def foo():
     print("I am foo")
     return "Okey"
 
+
 def bar(function):
     function.__call__()
     # print("I am bar")
+
 
 def baz():
     yield 1
