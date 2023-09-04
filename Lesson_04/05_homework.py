@@ -26,7 +26,7 @@ def show_players(players: list[dict]) -> None:
 # new_player_info()
 
 
-# """This function adds the new player using inputs from 'def new_player_info()'."""
+# """This function adds the new player using inputs from new_player_info()."""
 # def add_player():
 #     new_player = new_player_info()
 #     team.append(new_player)
