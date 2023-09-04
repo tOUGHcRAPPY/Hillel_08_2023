@@ -5,9 +5,12 @@ team: list[dict] = [
 ]
 
 """This function should print all players to the client"""
+
+
 def show_players(players: list[dict]) -> None:
     for player in players:
         print(player)
+
 
 # show_players(team)
 
@@ -32,17 +35,16 @@ def show_players(players: list[dict]) -> None:
 
 # add_player()
 
-  
+
 """This function adds the new player."""
+
+
 def add_player(num: int, name: str, age: int) -> None:
-    new_player = {
-        "name": name,
-        "age": age,
-        "number": num
-	}
+    new_player = {"name": name, "age": age, "number": num}
     team.append(new_player)
     print(f"the new player is {new_player}")
     return new_player
+
 
 # add_player(num=17, name="Cris", age=31)
 # show_players(team)
@@ -50,12 +52,15 @@ def add_player(num: int, name: str, age: int) -> None:
 
 
 """This function removes the player by his/her number."""
+
+
 def remove_player(players: list[dict], num: int) -> None:
     for player in team:
         if player["number"] == num:
             team.remove(player)
             print(f"The removed player is {player}")
     return player
+
 
 # remove_player(players=team, num=17)
 # print(len(team))
@@ -69,7 +74,8 @@ def main():
     remove_player(players=team, num=17)
 
     show_players(team)
-    
+
+
 main()
 
 
