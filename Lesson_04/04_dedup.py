@@ -1,4 +1,5 @@
 import sys
+
 from pympler.asizeof import asizeof
 
 users: list[str] = ["John", "Marry", "Jack", "Helen", "John", "Marry"]
