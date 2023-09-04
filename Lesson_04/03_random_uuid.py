@@ -1,5 +1,5 @@
-from uuid import uuid4, UUID
 from typing import Generator
+from uuid import UUID, uuid4
 
 # UUID Generator with UUID v4:
 
