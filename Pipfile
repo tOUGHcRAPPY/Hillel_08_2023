@@ -11,6 +11,7 @@ isort = "~=5.12"
 flake8 = "~=6.1"
 pre-commit = "*"
 ipdb = "*"
+pympler = "~=1.0"
 
 [requires]
 python_version = "3.11"
