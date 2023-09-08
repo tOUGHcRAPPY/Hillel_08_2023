@@ -32,7 +32,7 @@ def get_user(name: str, age: int):
     return {"name": name, "age": age}
 
 
-# get_user("Alex", 13)
+get_user("Alex", 13)
 
 
 def square_calc(a_side: int, b_side: int):
@@ -41,7 +41,7 @@ def square_calc(a_side: int, b_side: int):
     return square
 
 
-# square_calc(5, 7)
+square_calc(5, 7)
 
 
 def calc_decorator(func):
@@ -64,7 +64,7 @@ def square_calc(a_side: int, b_side: int):
     return square
 
 
-# square_calc(9, 9)
+square_calc(9, 9)
 
 list_of_numbers = [{"odd": [], "even": []}]
 
