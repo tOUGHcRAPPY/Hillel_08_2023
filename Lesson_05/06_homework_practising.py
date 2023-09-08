@@ -12,11 +12,6 @@ def name_hider_in_dictionary(name: str, age: int):
     return data
 
 
-def get_user(name: str, age: int):
-    print({"name": name, "age": age})
-    return {"name": name, "age": age}
-
-
 def decorator_func(func):
     def wrapper(*args, **kwargs):
         print("hello...")
