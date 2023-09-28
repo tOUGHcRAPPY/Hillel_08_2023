@@ -79,7 +79,7 @@ class Price:
 
 price1 = Price(100, "MXN")
 price2 = Price(125, "USD")
-price3 = Price(100, "RUB")
+price3 = Price(100, "UAH")
 price4 = Price(2, "USD")
 
 result = price2.add(price4)
