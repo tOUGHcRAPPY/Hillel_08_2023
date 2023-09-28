@@ -39,7 +39,7 @@ person_John.age = 12
 print(person_John.__dict__)
 
 team_1 = [{"name": "Alex", "age": 15}, {"name": "Fiona", "age": 14}]
-team_2 = [{"name": "Mike", "age": 13}, {"name": "Caroline", "age": 12}]
+team_2 = [{"name": "Jake", "age": 13}, {"name": "Caroline", "age": 12}]
 comb_team = team_1 + team_2
 
 print(comb_team)
