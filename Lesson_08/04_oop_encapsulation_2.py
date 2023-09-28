@@ -19,7 +19,7 @@ class PaymentSystem:
     # deleter
     @deposit.deleter
     def deposit(self):
-        return "Can not delete the object."
+        return "Can't delete the object."
 
 
 paypall = PaymentSystem()
