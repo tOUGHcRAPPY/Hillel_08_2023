@@ -36,7 +36,7 @@ class PaymentSystem:
         #         f"Access denied. Connection status: {self.atm_connection}"
         #     )
         print("Client gets his withdrawal...")
-        print(f"Take your money: {amount}. Don't leave the card...")
+        print(f"Take your money: {amount}. Don't leave the card inside...")
 
 
 paypall = PaymentSystem()
