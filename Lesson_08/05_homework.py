@@ -14,7 +14,7 @@
 
 class Price:
     exchange_rates = {
-        ("USD", "EUR"): 1.06,
+        ("USD", "EUR"): 1.07,
         ("USD", "GBP"): 1.23,
         ("USD", "MXN"): 0.06,
         ("USD", "AUD"): 0.64,
