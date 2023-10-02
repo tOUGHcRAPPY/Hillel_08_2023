@@ -31,7 +31,7 @@ class Price:
         self.currency: str = currency.upper()
 
     @staticmethod
-    def _convert_to_usd_if_needed(func):
+    def _convert_to_usd(func):
         def wrapper(self, other):
             if self.currency != "USD":
                 if ("USD", self.currency) in self.exchange_rates:
@@ -63,12 +63,38 @@ class Price:
 
         return wrapper
 
-    @_convert_to_usd_if_needed
+    @staticmethod
+    def _convert_to_original(func):
+        def wrapper(self, func_result):
+            original_currency_self = self.currency
+            result = func(self, func_result)
+            if self.currency != original_currency_self:
+                if (
+                    self.currency,
+                    original_currency_self,
+                ) in self.exchange_rates:
+                    conversion_rate = self.exchange_rates[
+                        (self.currency, original_currency_self)
+                    ]
+                    result.amount /= conversion_rate
+                    result.currency = original_currency_self
+                else:
+                    raise ValueError(
+                        f"Currency conversion from {self.currency} to {original_currency_self} is not available."
+                    )
+
+            return result
+
+        return wrapper
+
+    @_convert_to_original
+    @_convert_to_usd
     def add(self, other):
         result_amount = self.amount + other.amount
         return Price(result_amount, self.currency)
 
-    @_convert_to_usd_if_needed
+    @_convert_to_original
+    @_convert_to_usd
     def subtract(self, other):
         result_amount = self.amount - other.amount
         return Price(result_amount, self.currency)
@@ -80,7 +106,8 @@ class Price:
 price1 = Price(100, "MXN")
 price2 = Price(125, "USD")
 price3 = Price(100, "UAH")
-price4 = Price(2, "USD")
+price4 = Price(25, "USD")
+price5 = Price(50, "AUD")
 
 result = price2.add(price4)
 print(f"Addition: {result}")
@@ -92,4 +119,10 @@ result = price1.add(price3)
 print(f"Addition: {result}")
 
 result = price1.subtract(price3)
+print(f"Subtraction: {result}")
+
+result = price5.subtract(price1)
+print(f"Subtraction: {result}")
+
+result = price5.subtract(price3)
 print(f"Subtraction: {result}")
