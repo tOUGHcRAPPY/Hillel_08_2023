@@ -80,7 +80,8 @@ class Price:
                     result.currency = original_currency_self
                 else:
                     raise ValueError(
-                        f"Currency conversion from {self.currency} to {original_currency_self} is not available."
+                        f"Currency conversion from {self.currency}"
+                        f"to {original_currency_self} is not available."
                     )
 
             return result
