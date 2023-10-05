@@ -1,8 +1,6 @@
 import time
 from datetime import datetime
 
-
-
 # each social channel has a type
 # and the current number of followers
 
