@@ -1,5 +1,6 @@
-from datetime import datetime
 import time
+from datetime import datetime
+
 
 
 # each social channel has a type
