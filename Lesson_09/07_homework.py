@@ -2,9 +2,9 @@ from datetime import datetime
 import time
 
 
-
 # each social channel has a type
 # and the current number of followers
+
 
 class SocialChannel:
     def __init__(self, channel: str, followers: int):
@@ -39,7 +39,9 @@ class Post:
         print(self.scheduled_time)
         return self.scheduled_time
 
-    def post_a_message(self, channel: SocialChannel, message: str, scheduled_time: int):
+    def post_a_message(
+        self, channel: SocialChannel, message: str, scheduled_time: int
+    ):
         current_time = datetime.now()
         time_difference = scheduled_time - current_time
         time_in_seconds = time_difference.total_seconds()
@@ -65,6 +67,12 @@ social_post = Post()
 
 social_post.process_schedule(2023, 10, 4, 21, 55)
 
-# social_post.post_a_message(youtube_channel, "Hello, World!", social_post.scheduled_time)
-# social_post.post_a_message(twitter_channel, "Hello, World!", social_post.scheduled_time)
-social_post.post_a_message(facebook_channel, "Hello, World!", social_post.scheduled_time)
+# social_post.post_a_message(
+#     youtube_channel, "Hello, World!", social_post.scheduled_time
+# )
+# social_post.post_a_message(
+#     twitter_channel, "Hello, World!", social_post.scheduled_time
+# )
+social_post.post_a_message(
+    facebook_channel, "Hello, World!", social_post.scheduled_time
+)
