@@ -41,9 +41,7 @@ class Post:
         print(self.scheduled_time)
         return self.scheduled_time
 
-    def post_a_message(
-        self
-    ):
+    def post_a_message(self):
         current_time = datetime.now()
         time_difference = self.scheduled_time - current_time
         time_in_seconds = time_difference.total_seconds()
