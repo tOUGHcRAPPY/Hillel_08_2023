@@ -1,10 +1,9 @@
-import multiprocessing
+# import multiprocessing
 from time import sleep
 from enum import Enum
 from dataclasses import dataclass
 from threading import Thread
 from multiprocessing import Process
-
 
 
 class DishSize(Enum):
@@ -25,7 +24,7 @@ class Kitchen:
     def heat(dish: Dish):
         """This function is IO-bound task.
         We should wait till our dish is warming"""
-      
+
         print(f"\n ⏲ Started heatting {dish.name}")
         # NOTE: IO-bound task
         sleep(3)
@@ -41,6 +40,7 @@ class Kitchen:
         _ = [i for i in range(120_000_000)]
         sleep(5)
         print(f"\n 🍝 Your {dish} is ready!")
+
 
 # if __name__ == '__main__':
 #     multiprocessing.freeze_support()
@@ -61,45 +61,47 @@ salad = Dish(
 dishes = [pasta, salad]
 
 # NOTE: regular execution:
-# print("Regular...")
+print("Regular...")
 # NOTE: CPU-bound / IO-bound
-# for dish in dishes:
-#   Kitchen.cook(dish)
+for dish in dishes:
+    Kitchen.cook(dish)
 
-# for dish in dishes:
-#   Kitchen.heat(dish)
+for dish in dishes:
+    Kitchen.heat(dish)
 
 # NOTE: concurrent execution:
 
-# print("Threads...IO-bound")
+print("Threads...IO-bound")
 # NOTE: threads execution IO-bound
-# threads = [Thread(
-#   target=Kitchen.heat,
-#   args=(dish,),
-# )
-# for dish in dishes
-# ]
+threads = [
+    Thread(
+        target=Kitchen.heat,
+        args=(dish,),
+    )
+    for dish in dishes
+]
 
-# print("Threads...CPU-bound")
+print("Threads...CPU-bound")
 # NOTE: threads execution CPU-bound
-# threads = [Thread(
-#   target=Kitchen.cook,
-#   args=(dish,),
-# )
-# for dish in dishes
-# ]
+threads = [
+    Thread(
+        target=Kitchen.cook,
+        args=(dish,),
+    )
+    for dish in dishes
+]
 
-# for thread in threads:
-#   thread.start()
+for thread in threads:
+    thread.start()
 
-# for thread in threads:
-#   thread.join()
+for thread in threads:
+    thread.join()
 
-# print("☠️ All threads are finished.☠️")
+print("☠️ All threads are finished.☠️")
 
-# sleep(3)
+sleep(3)
 # NOTE: concurrent execution:
-# sleep(2)
+sleep(2)
 
 print("Multiprocessing...CPU-bound")
 # NOTE: process execution CPU-bound
@@ -111,15 +113,15 @@ tasks = [
     for dish in dishes
 ]
 
-# print("Multiprocessing...IO-bound")
+print("Multiprocessing...IO-bound")
 #  NOTE: threads execution IO-bound
-# tasks = [
-#     Process(
-#         target=Kitchen.heat,
-#         args=(dish,),
-#     )
-#     for dish in dishes
-# ]
+tasks = [
+    Process(
+        target=Kitchen.heat,
+        args=(dish,),
+    )
+    for dish in dishes
+]
 
 for task in tasks:
     task.start()
