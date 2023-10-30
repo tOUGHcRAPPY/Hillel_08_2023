@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from enum import Enum
 from multiprocessing import Process
-from time import sleep
 from threading import Thread
+from time import sleep
 
 
 class DishSize(Enum):
