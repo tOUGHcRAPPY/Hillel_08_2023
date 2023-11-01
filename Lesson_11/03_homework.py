@@ -1,4 +1,3 @@
-import multiprocessing
 import os
 import threading
 import time
@@ -9,9 +8,12 @@ import requests
 
 # AC:
 
-# This code works pretty slowly. Change it using multithreading and multiprocessing as we did in the lesson
-# Add time counters and uncomment the print command in the try/except block. P.S. Use time.perf_counter.
-# The encryption could simulate the heavy task. No need to achieve the actual encryption
+# This code works pretty slowly.
+# Change it using multithreading and multiprocessing as we did in the lesson
+# Add time counters and uncomment the print command in the try/except block.
+# P.S. Use time.perf_counter.
+# The encryption could simulate the heavy task.
+# No need to achieve the actual encryption
 # The image downloader should download the image for real
 
 
@@ -43,7 +45,8 @@ class Task:
         It is downloading image from the internet."""
         start_time = time.perf_counter()
         print(
-            f"Downloading image from {image_url} in thread {threading.current_thread().name}"
+            f"Downloading image from {image_url} in thread\n"
+            f"{threading.current_thread().name}"
         )
         response = requests.get(image_url)
         with open("image.jpg", "wb") as f:
@@ -62,13 +65,17 @@ def run():
         common_downloading_time = Task.download_image(image_url)
         total = common_encryption_time + common_downloading_time
         print(
-            f"Time taken for CPU-bound encryption task: {common_encryption_time} seconds⏱, IO-bound task: {common_downloading_time} seconds⏱, Total: {total} seconds✅"
+            f"Time taken for CPU-bound encryption task:\n"
+            f"{common_encryption_time} seconds⏱,\n"
+            f"IO-bound task:\n"
+            f"{common_downloading_time} seconds⏱,\n"
+            f"Total: {total} seconds✅"
         )
     except Exception as e:
         print(f"Error occurred: {e}")
 
-    # NOTE: concurrent execution IO-bound in threads and CPU-bound in processes:
-    print("🔀concurrent execution.🔀")
+    # NOTE:concurrent execution IO-bound in threads and CPU-bound in processes:
+    print("🔀concurrent execution..🔀")
 
     try:
         download_start = time.perf_counter()
@@ -102,7 +109,11 @@ def run():
         total = encryption_time + downloading_time
 
         print(
-            f"Time taken for CPU-bound encryption task: {encryption_time} seconds⏱, IO-bound task: {downloading_time} seconds⏱, Total: {total} seconds✅"
+            f"Time taken for CPU-bound encryption task:\n"
+            f"{encryption_time} seconds⏱,\n"
+            "IO-bound task:\n"
+            f"{downloading_time} seconds⏱,\n"
+            f"Total: {total} seconds✅"
         )
     except Exception as e:
         print(f"Error occurred: {e}")
