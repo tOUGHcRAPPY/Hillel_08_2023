@@ -2,3 +2,5 @@
 .idea
 *.txt
 venv
+*.pyc
+__pycache__/
