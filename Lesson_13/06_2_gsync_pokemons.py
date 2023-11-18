@@ -1,7 +1,7 @@
 import sys
-import grequests
 from time import perf_counter
 
+import grequests
 
 BASE_URL = "https://pokeapi.co/api/v2/pokemon/{id_}"
 
