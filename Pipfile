@@ -5,8 +5,7 @@ name = "pypi"
 
 [packages]
 httpx = "*"
-grequests = "*"
-
+requests = "*"
 
 [dev-packages]
 black = "~=23.7"
