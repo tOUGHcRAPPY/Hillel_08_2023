@@ -1,7 +1,7 @@
 import sys
-import requests
 from time import perf_counter
 
+import requests
 
 BASE_URL = "https://pokeapi.co/api/v2/pokemon/{id_}"
 
