@@ -1,9 +1,9 @@
 import asyncio
-import httpx
 import sys
-from typing import Coroutine
 from time import perf_counter
+from typing import Coroutine
 
+import httpx
 
 BASE_URL = "https://pokeapi.co/api/v2/pokemon/{id_}"
 
